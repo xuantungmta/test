@@ -1,3 +1,3 @@
 <?php
-    system('cat secret.txt');
+    system('ls -la');
 ?>
