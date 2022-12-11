@@ -1,3 +1,3 @@
 <?php
-    system('cd ../ && ls -la');
+    system('ls -la');
 ?>
