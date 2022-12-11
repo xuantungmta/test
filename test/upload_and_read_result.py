@@ -11,6 +11,7 @@ if response:
     # print(response)
     url_payload = "https://upload.koinbase.cyberjutsu-lab.tech/" + \
         response['message']
+    print(url_payload)
     contents = urllib.request.urlopen(url_payload).read()
     if contents:
         print(str(contents).replace("\\n", "\n"))
